@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect width="1000" height="1000" fill="#ffffff"/><g transform="translate(212.0,113.0) scale(0.9)">
+  <path d="M55,60 L375,212 L375,640 L55,795 Z M130,180 L330,255 L330,618 L130,690 Z" fill="#37718f" fill-rule="evenodd"/>
+  <path d="M265,211 L580,60 L580,790 L265,655 Z M310,253 L505,175 L505,685 L310,630 Z" fill="#1a1d1b" fill-rule="evenodd" stroke="#ffffff" stroke-width="9" stroke-linejoin="miter" paint-order="stroke"/>
+  <path d="M262,158.3 L375,212 L375,300 M330,300 L330,255 L250,225.0" fill="none" stroke="#ffffff" stroke-width="9"/>
+  <path d="M250,152.6 L375,212 L375,300 L330,300 L330,255 L250,225.0 Z" fill="#37718f"/>
+</g></svg>
