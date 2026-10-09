@@ -1051,11 +1051,11 @@ function vistaAjustes() {
         ${inp('empresa.email', 'Email', 'inputmode="email"')}
       </div>
     </div>
-    <div class="card">
+    ${ESCRITORIO ? '' : `<div class="card">
       <h2>Acceso</h2>
       <p class="hint" style="margin-top:-6px">La app pide contraseña al abrirla. En los dispositivos donde marcaste «Recordar» ya no la vuelve a pedir, salvo que la bloquees aquí.</p>
       <div class="fila" style="margin-top:10px"><button class="btn" data-act="bloquear">Bloquear ahora</button></div>
-    </div>
+    </div>`}
     <div class="card">
       <h2>Copia de seguridad</h2>
       <p class="hint" style="margin-top:-6px">Los presupuestos se guardan <strong>en este dispositivo</strong>. Haz una copia de vez en cuando y guárdala (por ejemplo, envíatela por email o a Google Drive). Con ella también puedes pasar los datos del móvil al ordenador.</p>
@@ -1252,6 +1252,8 @@ app.addEventListener('click', async (ev) => {
    Evita que alguien que abra el enlace pueda usar la app.
    (Los presupuestos nunca salen del dispositivo: esto solo protege la pantalla.)
    ========================================================================= */
+// En la versión de escritorio (un solo PC, uso personal) no se pide contraseña.
+const ESCRITORIO = !!(window.escritorio && window.escritorio.activo);
 const CLAVE_HASH = '1x5h9dab93j';
 const ACCESO_KEY = 'cristaleria-emilio-acceso';
 let _abierto = false;
@@ -1263,7 +1265,7 @@ function cyrb53(str, seed = 0) {
   return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36);
 }
 function desbloqueado() {
-  if (_abierto) return true;
+  if (_abierto || ESCRITORIO) return true;
   try { if (localStorage.getItem(ACCESO_KEY) === CLAVE_HASH) return (_abierto = true); } catch (e) { /* */ }
   try { if (sessionStorage.getItem(ACCESO_KEY) === CLAVE_HASH) return (_abierto = true); } catch (e) { /* */ }
   return false;

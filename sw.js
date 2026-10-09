@@ -1,7 +1,7 @@
 // Service worker: permite usar la app sin conexión.
 // Estrategia: primero red (siempre la versión más nueva si hay internet),
 // y si no hay conexión, la copia guardada.
-const CACHE = 'presupuestos-v2';
+const CACHE = 'presupuestos-v3';
 const ASSETS = [
   './',
   './index.html',
