@@ -47,6 +47,22 @@ Los presupuestos se guardan **en el navegador de cada dispositivo**. Lo que se h
 
 Si se borran los datos del navegador, se pierden los presupuestos. Conviene guardar una copia de vez en cuando.
 
+## Programa de escritorio (Windows)
+
+En la carpeta `escritorio/` está la misma app empaquetada como programa de Windows (con Electron). Funciona igual que la web, pero **no pide contraseña** y no necesita internet. Los presupuestos se guardan en el propio PC (`%APPDATA%\Presupuestos Cristalería Emilio`), separados de los de la web.
+
+**Instalarlo:** doble clic en `Instalar-Presupuestos-Cristaleria-Emilio.exe`. Se instala solo, sin pedir permisos de administrador, y deja un acceso directo «Presupuestos» en el escritorio. Como el programa no está firmado, Windows puede mostrar «Windows protegió su PC»: pulsa *Más información → Ejecutar de todas formas*.
+
+**Volver a generar el instalador** (después de cambiar la app):
+
+```
+cd escritorio
+npm install
+npm run build:win
+```
+
+El instalador queda en `escritorio/dist/`. Desde Windows funciona tal cual; desde Linux hace falta Wine (`wine64` y `wine32`). Para probarlo sin instalar: `npm start`.
+
 ## Facturas
 
 Esta app hace **presupuestos**, no facturas. Desde el 1 de julio de 2027 los autónomos que facturan con programa informático tienen que usar un sistema que cumpla **Verifactu**. La AEAT ofrece una aplicación gratuita para ello. Consúltalo con tu gestor.
@@ -62,6 +78,7 @@ Esta app hace **presupuestos**, no facturas. Desde el 1 de julio de 2027 los aut
 | `manifest.webmanifest` | Permite instalarla como app |
 | `lib/jspdf.umd.min.js` | Librería para generar el PDF (jsPDF, licencia MIT) |
 | `img/` | Logo e iconos |
+| `escritorio/` | Versión de escritorio para Windows |
 
 Para cambiar el logo, sustituye `img/logo.png` por otro PNG con la misma proporción (aprox. 2,6 : 1).
 

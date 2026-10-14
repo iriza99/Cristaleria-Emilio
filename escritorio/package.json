@@ -1,0 +1,50 @@
+{
+  "name": "presupuestos-cristaleria-emilio",
+  "productName": "Presupuestos Cristalería Emilio",
+  "version": "1.0.0",
+  "description": "Presupuestos de ventanas con dibujo y PDF",
+  "author": "Cristalería Emilio",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "web": "node scripts/copiar-web.js",
+    "start": "npm run web && electron .",
+    "build:win": "npm run web && electron-builder --win nsis --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "44.4.5",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "es.cristaleriaemilio.presupuestos",
+    "productName": "Presupuestos Cristalería Emilio",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "web/**/*"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "artifactName": "Instalar-Presupuestos-Cristaleria-Emilio.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "Presupuestos",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false,
+      "differentialPackage": false
+    },
+    "publish": null,
+    "compression": "maximum",
+    "electronLanguages": [
+      "es",
+      "en-US"
+    ]
+  }
+}
